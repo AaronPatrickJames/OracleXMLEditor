@@ -318,11 +318,27 @@ namespace OracleXMLEditor
             theDialog.Title = "Open Text File";
             theDialog.Filter = "XLSX files|*.xlsx";
             theDialog.InitialDirectory = @"C:\";
+            string myInjectionAbsolute;
             if (theDialog.ShowDialog() == true)
             {
+                //Set File Name
                 FileNameLeft.Text = theDialog.SafeFileName;
-                
+                //Set Path
+                PathLeft.Text = theDialog.FileName;
+
+                //Add Debug Message
+                Debug.WriteLine("File Loaded: " + theDialog.FileName.ToString());
             }
+            
+            if (PathRight.Text != "MISSING" && PathLeft.Text != "MISSING")
+            {
+                //Activate Injection Button Message
+                Debug.WriteLine("Awaiting Injection Task");
+
+                //Inject Button Active
+                InjectionButton.IsEnabled = true;
+            }
+
         }
 
         private void UploadXMLFileButton(object sender, RoutedEventArgs e)
@@ -333,9 +349,25 @@ namespace OracleXMLEditor
             theDialog.InitialDirectory = @"C:\";
             if (theDialog.ShowDialog() == true)
             {
+                //Set File Name
                 FileNameRight.Text = theDialog.SafeFileName;
-                
+                //Set Path
+                PathRight.Text = theDialog.FileName;
+
+                //Add Debug Message
+                Debug.WriteLine("File Loaded: " + theDialog.FileName.ToString());
             }
+
+
+            if (PathRight.Text != "MISSING" && PathLeft.Text != "MISSING")
+            {
+                //Activate Injection Button Message
+                Debug.WriteLine("Awaiting Injection Task");
+
+                //Inject Button Active
+                InjectionButton.IsEnabled = true;
+            }
+
         }
     }
 }

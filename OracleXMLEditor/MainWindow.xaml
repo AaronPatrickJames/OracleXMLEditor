@@ -12,6 +12,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="375"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -33,11 +34,11 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0" VerticalAlignment="Top">
-                    <StackPanel Orientation="Vertical" Height="409" VerticalAlignment="Top">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top">
                         <TextBlock Text="XLSX File" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold"/>
                         <Image Source="C:\Users\local act\OneDrive\Desktop\xlsx_icon.svg.png" Width="200" Margin="10"/>
-                        <TextBlock Text="FILE NAME HERE" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Bottom" x:Name="FileNameLeft"/>
-                        
+                        <TextBlock FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Bottom" x:Name="FileNameLeft"/>
+                        <TextBlock Visibility="Hidden" Text="MISSING" x:Name="PathLeft"/>
                         <Button Height="50" Margin="20" Style="{StaticResource addButton}" Click="Button_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="22" Height="22" Margin="0 1 8 0"/>
@@ -50,21 +51,21 @@
                 </Grid>
 
                 <Grid Grid.Column="1">
-                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="0 0 130 150" x:Name="One"/>
-                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="0 0 85 150"  x:Name="Two"/>
-                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="0 0 40 150"  x:Name="Three"/>
-                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="10 0 5 150"  x:Name="Four"/>
-                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="55 0 5 150"  x:Name="Five"/>
-                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="100 0 5 150" x:Name="Six"/>
-                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="145 0 5 150" x:Name="Seven"/>
+                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="0 0 130 110" x:Name="One"/>
+                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="0 0 85 110"  x:Name="Two"/>
+                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="0 0 40 110"  x:Name="Three"/>
+                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="10 0 5 110"  x:Name="Four"/>
+                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="55 0 5 110"  x:Name="Five"/>
+                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="100 0 5 110" x:Name="Six"/>
+                    <Icon:PackIconMaterial Kind="ChevronDoubleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50" Margin="145 0 5 110" x:Name="Seven"/>
                 </Grid>
-                
+
                 <Grid Grid.Column="2" VerticalAlignment="top">
-                    <StackPanel Orientation="Vertical" Height="409" VerticalAlignment="Top">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top">
                         <TextBlock Text="XLM File" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="SemiBold"/>
                         <Image Source="C:\Users\local act\OneDrive\Desktop\xlsx_icon.svg.png" Width="200" Margin="10"/>
-                        <TextBlock Text="FILE NAME HERE" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Bottom" x:Name="FileNameRight"/>
-
+                        <TextBlock FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Bottom" x:Name="FileNameRight"/>
+                        <TextBlock Visibility="Hidden" Text="MISSING" x:Name="PathRight"/>
                         <Button Height="50" Margin="20" Style="{StaticResource addButton}" Click="UploadXMLFileButton">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="22" Height="22" Margin="0 1 8 0"/>
@@ -74,15 +75,23 @@
 
                     </StackPanel>
                 </Grid>
-
-                <Button Content="Button" HorizontalAlignment="Left" Margin="623,307,0,0" VerticalAlignment="Top" Height="146" Width="290" Click="On_Runable_Clikc"/>
             </Grid>
             
-            <!--This is where the log is going-->
+            <!--This is where the actionButton is going-->
             <Grid Grid.Row="2">
+                <Button Height="50" Margin="20" Style="{StaticResource injectButton}" IsEnabled="False" x:Name="InjectionButton"  Click="On_Runable_Clikc">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Begin XML Injection"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+            
+            
+            <!--This is where the log is going-->
+            
+            <Grid Grid.Row="3">
                 <TextBlock Text="thisis me"/>
             </Grid>
-
         </Grid>
     </Border>    
         
